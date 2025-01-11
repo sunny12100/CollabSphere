@@ -12,6 +12,9 @@ import Image from "@tiptap/extension-image";
 import ImageResize from "tiptap-extension-resize-image";
 import { useEditorStore } from "@/store/use-editor-store";
 import Underline from "@tiptap/extension-underline";
+import FontFamily from "@tiptap/extension-font-family";
+import TextStyle from "@tiptap/extension-text-style";
+
 export const Editor = () => {
   const { setEditor } = useEditorStore();
   const editor = useEditor({
@@ -39,6 +42,7 @@ export const Editor = () => {
     onContentError({ editor }) {
       setEditor(editor);
     },
+    immediatelyRender: false,
     editorProps: {
       attributes: {
         style: "padding-left: 56px; padding-right:56px;",
@@ -59,6 +63,8 @@ export const Editor = () => {
       Image,
       ImageResize,
       Underline,
+      FontFamily,
+      TextStyle,
     ],
     content: `
         <table>
